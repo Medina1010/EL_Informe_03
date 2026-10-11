@@ -1,55 +1,29 @@
-\begin{table}
+\def\tabla#1#2{%
+\begin{table}[H]
 \centering
-\caption{1}
+\caption{#2}
 \begin{tabular}{c|c}
-$A_1$ & $V_1$ \\
-\hline
-$-10.909 \times 10^{-3}$ & $-1.091$ \\
-$-9.6 \times 10^{-3}$ & $-2.4$ \\
-$-0.008$ & $-4$ \\
-$-0.006$ & $-6$ \\
-$-0.004001$ & $-7.999$ \\
-$-0.003001$ & $-8.999$ \\
-$-0.002401$ & $-9.599$ \\
-$-0.002001$ & $-9.999$ \\
-$-0.001715$ & $-10.285$ \\
+$A_#1$ & $V_#1$ \\ \hline
+\input{src/tabla#1.tex}
 \end{tabular}
-\end{table}
+\end{table}}
 
-\begin{table}[h]
+Los datos medidos para los diferentes circuitos fueron
+\tabla{1}{corriente y voltaje en diferentes valores de resistencia para circuito 1}
+\tabla{2}{corriente y voltaje en diferentes valores de resistencia para circuito 2}
+\tabla{3}{corriente y voltaje en diferentes valores de resistencia para circuito 3}
+
+Tendiendo en cuenta la Ec. \ref{eq: equivalente} y la regresión de los datos, los
+valores de fuente y resistencia equibalentes de Thevenin son:
+
+\begin{table}[H]
 \centering
-\caption{2}
-\begin{tabular}{c|c}
-$A_3$ & $V_3$ \\
+\caption{voltajes y resistencias equivalentes de Thevenin}
+\begin{tabular}{c|c|c}
+Circuito & $V_{eq}\unit{\volt}$ & $R_{eq}\unit{\ohm}$ \\
 \hline
-$-0.0005$ & $-10.999$ \\
-$-231.878 \times 10^{-6}$ & $-11.536$ \\
-$-0.0025$ & $-6.998$ \\
-$-5.714 \times 10^{-3}$ & $-571.423 \times 10^{-3}$ \\
-$-4.8 \times 10^{-3}$ & $-2.4$ \\
-$-4 \times 10^{-3}$ & $-4$ \\
-$-1.001 \times 10^{-3}$ & $-9.998$ \\
-$-118.8 \times 10^{-6}$ & $-11.762$ \\
-$-5.997 \times 10^{-3}$ & $-5.997 \times 10^{-3}$ \\
-\end{tabular}
-\end{table}
-
-
-\begin{table}[h]
-\centering
-\caption{2}
-\begin{tabular}{c|c}
-$A_4$ & $V_4$ \\
-\hline
-$-11.765 \times 10^{-3}$ & $-117.647 \times 10^{-3}$ \\
-$-10.909 \times 10^{-3}$ & $-545.452 \times 10^{-3}$ \\
-$-9.6 \times 10^{-3}$    & $-1.2$                   \\
-$-8 \times 10^{-3}$      & $-2$                     \\
-$-6 \times 10^{-3}$      & $-3$                     \\
-$-4 \times 10^{-3}$      & $-4$                     \\
-$-1.091 \times 10^{-3}$  & $-5.454$                 \\
-$-571.971 \times 10^{-6}$& $-5.714$                 \\
-$-293.254 \times 10^{-6}$& $-5.853$                 \\
-$-60.295 \times 10^{-6}$ & $-5.97$                  \\
+1 & 12 & 1000 \\
+2 & 12 & 2000 \\
+3 &  6 &  500
 \end{tabular}
 \end{table}
