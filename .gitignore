@@ -1,0 +1,10 @@
+bld
+main.pdf
+*.log
+*.bbl
+*.aux
+*.out
+*.bib
+*.xml
+*.gz
+*.blg
