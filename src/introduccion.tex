@@ -6,12 +6,45 @@ complejos cuyos parámetros son dificiles de deducir analíticamente.
 
 Es posible determinar los parámetros equivalentes de un circuito utilizando un elemento
 externo capaz de extraer una cantidad de corriente $I$, p.ej. una resistencia variable
-$R_z$. En la Fig. ? se muestra la configuración ideal para medir $V_{eq}$ y $R_{eq}$
-utilizando $R_z$ como parámetro.
+$R_z$. En la Fig. \ref{fig:c1} se muestra la configuración ideal para medir $V_{eq}$ y
+$R_{eq}$ utilizando $R_z$ como parámetro.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{res/C1.pdf}
+	\includegraphics[width=0.8\linewidth]{res/C1.pdf}
 	\caption{Configuración para medir el voltaje y resistencia equivalente de un
 			circuito desconocido.}
 	\label{fig:c1}
 \end{figure}
+Variando la resistencia de $R_z$ y midiendo el voltaje entre sus extremos y la corriente
+que circula, es posible establecer experimentalmente una relacion lineal entre $V$ y $A$
+de acuerdo a la expresión
+\begin{equation}\label{eq:c1}
+	V = V_\mathrm{eq} - AR_\mathrm{eq}.
+\end{equation}
+Similarmente, se puede deducir una ecuación equivalente para los circuitos de las
+Fig. \ref{fig:c2} y \ref{fig:c3}; en este caso, se agrega una resistencia $R_1$ en serie
+y en paralelo respectivamente. Las Ec. \ref{eq:c2} y \ref{eq:c3} muestran la relación
+entre el voltaje y la corriente de los respectivos circuitos.
+\begin{align}
+	V_\mathrm{ser} &= V_\mathrm{eq} - A_\mathrm{ser}(R_\mathrm{eq} + R_1)  \label{eq:c2}\\
+	V_\mathrm{par} &= V_\mathrm{eq}\left(\frac{R_1}{R_\mathrm{eq} + R_1}\right) - A_\mathrm{par}\left( \frac{R_\mathrm{eq}R_1}{R_\mathrm{eq} + R_1} \right) \label{eq:c3}
+\end{align}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{res/C2.pdf}
+	\caption{Configuración en serie para medir el voltaje y resistencia equivalente de un
+		circuito desconocido.}
+	\label{fig:c2}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{res/C3.pdf}
+	\caption{Configuración en paralelo para medir el voltaje y resistencia equivalente de un
+		circuito desconocido.}
+	\label{fig:c3}
+\end{figure}
+En ese sentido, en el presente informe se determinó experimentalmente el voltaje y
+resistencia equivalente de un circuito desconocido en las tres configuraciones presentadas,
+con el fin de verificar la relación teórica establecida anteriormente y evidenciar
+cómo la interacción del circuito desconocido con componentes exteriores extrae información
+del mismo.
