@@ -13,6 +13,26 @@ Los datos medidos para los diferentes circuitos fueron
 \tabla{2}{corriente y voltaje en diferentes valores de resistencia para circuito 2}
 \tabla{3}{corriente y voltaje en diferentes valores de resistencia para circuito 3}
 
+\begin{figure}[H]\begin{tikzpicture}
+\begin{axis}
+\addplot table [
+	x index = 0,
+	y index = 1,
+	col sep = comma
+] {res/tabla1.csv};
+\addplot table [
+	x index = 0,
+	y index = 1,
+	col sep = comma
+] {res/tabla2.csv};
+\addplot table [
+	x index = 0,
+	y index = 1,
+	col sep = comma
+] {res/tabla3.csv};
+\end{axis}
+\end{tikzpicture}\end{figure}
+
 Tendiendo en cuenta la Ec. \ref{eq: equivalente} y la regresión de los datos, los
 valores de fuente y resistencia equibalentes de Thevenin son:
 
