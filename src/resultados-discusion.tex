@@ -1,49 +1,53 @@
-\def\tabla#1#2{%
-\begin{table}[H]
-\centering
-\caption{#2}
-\begin{tabular}{c|c}
-$A_#1$ & $V_#1$ \\ \hline
-\input{src/tabla#1.tex}
-\end{tabular}
-\end{table}}
+\def\tabla#1#2{
+  \begin{table}[H]
+    \centering
+    \caption{#2}
+    \begin{tabular}{c|c}
+      $A_#1$ & $V_#1$ \\ \hline
+      \input{src/tabla#1.tex}
+    \end{tabular}
+  \end{table}
+}
 
 Los datos medidos para los diferentes circuitos fueron
 \tabla{1}{corriente y voltaje en diferentes valores de resistencia para circuito 1}
 \tabla{2}{corriente y voltaje en diferentes valores de resistencia para circuito 2}
 \tabla{3}{corriente y voltaje en diferentes valores de resistencia para circuito 3}
 
-\begin{figure}[H]\begin{tikzpicture}
-\begin{axis}
-\addplot table [
-	x index = 0,
-	y index = 1,
-	col sep = comma
-] {res/tabla1.csv};
-\addplot table [
-	x index = 0,
-	y index = 1,
-	col sep = comma
-] {res/tabla2.csv};
-\addplot table [
-	x index = 0,
-	y index = 1,
-	col sep = comma
-] {res/tabla3.csv};
-\end{axis}
-\end{tikzpicture}\end{figure}
+\pgfplotsset{
+  estiloplot/.style={only marks},
+  table/estilotable/.style={x index=0, y index=1, col sep=comma}
+}
 
-Tendiendo en cuenta la Ec. \ref{eq: equivalente} y la regresión de los datos, los
-valores de fuente y resistencia equibalentes de Thevenin son:
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis} [
+        grid = both,
+        xmin = -1,   xmax = 13,
+        ymin = -1,  ymax = 13
+      ]
+      \addplot [estiloplot, color = red] table [estilotable] {res/tabla1.csv};
+      \addplot [domain = -1: 13, color = red] {12 - 1 * x};
+      \addplot [estiloplot, color = green] table [estilotable] {res/tabla2.csv};
+      \addplot [domain = -1: 13, color = green] {12 - 2 * x};
+      \addplot [estiloplot, color = blue] table [estilotable] {res/tabla3.csv};
+      \addplot [domain = -1: 13, color = blue] {6 - 0.5 * x};
+    \end{axis}
+  \end{tikzpicture}
+\end{figure}
+
+Tendiendo en cuenta la Ec. \ref{eq: equivalente} y la regresión de los datos,
+los valores de fuente y resistencia equibalentes de Thevenin son:
 
 \begin{table}[H]
-\centering
-\caption{voltajes y resistencias equivalentes de Thevenin}
-\begin{tabular}{c|c|c}
-Circuito & $V_{eq}\unit{\volt}$ & $R_{eq}\unit{\ohm}$ \\
-\hline
-1 & 12 & 1000 \\
-2 & 12 & 2000 \\
-3 &  6 &  500
-\end{tabular}
+  \centering
+  \caption{voltajes y resistencias equivalentes de Thevenin}
+  \begin{tabular}{c|c|c}
+    Circuito & $V_{eq}\unit{\volt}$ & $R_{eq}\unit{\ohm}$ \\
+    \hline
+    1 & 12 & 1000 \\
+    2 & 12 & 2000 \\
+    3 &  6 &  500
+  \end{tabular}
 \end{table}
