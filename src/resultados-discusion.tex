@@ -3,7 +3,7 @@
     \centering
     \caption{#2}
     \begin{tabular}{c|c}
-      $A_#1$ & $V_#1$ \\ \hline
+      $A_#1\ (\unit{\milli\ampere})$ & $V_#1\ (\unit{\volt})$ \\ \hline
       \input{src/tabla#1.tex}
     \end{tabular}
   \end{table}
@@ -23,16 +23,19 @@ Los datos medidos para los diferentes circuitos fueron
   \centering
   \begin{tikzpicture}
     \begin{axis} [
+        xlabel = {Amperaje \unit{\milli\ampere}},
+        ylabel = {Voltaje \unit{\volt}},
         grid = both,
-        xmin = -1,   xmax = 13,
+        xmin = -1,  xmax = 13,
         ymin = -1,  ymax = 13
       ]
       \addplot [estiloplot, color = red] table [estilotable] {res/tabla1.csv};
-      \addplot [domain = -1: 13, color = red] {12 - 1 * x};
+      \addplot [domain = -1: 13, color = red] {12 - x};
       \addplot [estiloplot, color = green] table [estilotable] {res/tabla2.csv};
       \addplot [domain = -1: 13, color = green] {12 - 2 * x};
       \addplot [estiloplot, color = blue] table [estilotable] {res/tabla3.csv};
       \addplot [domain = -1: 13, color = blue] {6 - 0.5 * x};
+      \legend{Circuito 1, , Circuito 2, , Circuito 3}
     \end{axis}
   \end{tikzpicture}
 \end{figure}
