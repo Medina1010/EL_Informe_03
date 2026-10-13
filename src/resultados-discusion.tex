@@ -2,9 +2,10 @@
   \begin{table}[H]
     \centering
     \caption{#2}
-    \begin{tabular}{c|c}
+    \begin{tabular}{|c|c|}
+      \hline
       $A_#1 \pm0.001\ (\unit{\milli\ampere})$ & $V_#1 \pm0.001\ (\unit{\volt})$ \\ \hline
-      \input{src/tabla#1.tex}
+      \input{src/tabla#1.tex} \\ \hline
     \end{tabular}
     \label{tab:#1}
   \end{table}
@@ -54,11 +55,12 @@ los puntos de evaluación $(A,V)$, que están parametrizados por $R_z$, no está
 distribuidos linealmente a lo largo de las respectivas rectas de ajuste. Esto indica
 que la relación entre $R_z$ y las variables $A$ y $V$ es recíproca.
 
-Considerando las Ec. \ref{eq:c1}---\ref{eq:c3} y la regresión lineal para cada conjunto
-de datos, en la Tab. \ref{tab:tevenin} se muestran los valores de voltaje y resistencia
-equivalentes de Thevenin. Junto con las incertidumbres calculadas por el
-algoritmo de York \cite{cantrell2008technical}, dado a las incertidumbres
-asociadas tanto para los datos de amperaje cono voltaje medidos.
+Considerando las Ec. \ref{eq:c1}---\ref{eq:c3} y la regresión lineal para cada
+conjunto de datos, en la Tab. \ref{tab:tevenin} se muestran los valores de
+voltaje y resistencia equivalentes de Thevenin. Además de sus respectivos
+valores de incertidumbre, y debido a que las incertidumbres asociadas al
+amperaje y al voltaje no son despreciables, se calcularon las incertidumbres
+mediante el algoritmo de Williamson-York \cite{cantrell2008technical}.
 \begin{table}[H]
   \centering
   \caption{voltajes y resistencias equivalentes de Thevenin}
