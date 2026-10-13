@@ -3,13 +3,15 @@
     \centering
     \caption{#2}
     \begin{tabular}{c|c}
-      $A_#1\ (\unit{\milli\ampere})$ & $V_#1\ (\unit{\volt})$ \\ \hline
+      $A_#1 \pm0.001\ (\unit{\milli\ampere})$ & $V_#1 \pm0.001\ (\unit{\volt})$ \\ \hline
       \input{src/tabla#1.tex}
     \end{tabular}
+    \label{tab:#1}
   \end{table}
 }
 
-Los datos medidos para los diferentes circuitos fueron
+En las Tab. \ref{tab:1}---\ref{tab:3} se presentan los valores de corriente y
+voltaje medidos para cada uno de los circuitos de las Fig. \ref{fig:c1}---\ref{fig:c3}.
 \tabla{1}{corriente y voltaje en diferentes valores de resistencia para circuito 1}
 \tabla{2}{corriente y voltaje en diferentes valores de resistencia para circuito 2}
 \tabla{3}{corriente y voltaje en diferentes valores de resistencia para circuito 3}
@@ -19,6 +21,8 @@ Los datos medidos para los diferentes circuitos fueron
   table/estilotable/.style={x index=0, y index=1, col sep=comma}
 }
 
+En la Fig. \ref{fig:lineas} se muestra las rectas de ajuste de las series de datos de
+los circuitos 1---3, presentados en las Tab. \ref{tab:1}---\ref{tab:3}.
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -38,11 +42,21 @@ Los datos medidos para los diferentes circuitos fueron
       \legend{Circuito 1, , Circuito 2, , Circuito 3}
     \end{axis}
   \end{tikzpicture}
+  \caption{Lineas de regresión para cada serie de datos registrados en los
+  circuitos. Cada punto es representado como un par ordenado $(A_i,V_i),\ i=(1,2,3)$.}
+  \label{fig:lineas}
 \end{figure}
 
-Tendiendo en cuenta la Ec. \ref{eq: equivalente} y la regresión de los datos,
-los valores de fuente y resistencia equibalentes de Thevenin son:
+Con base en la Fig. \ref{fig:lineas}, es posible evidenciar la relación lineal entre
+la corriente y el voltaje que pasa sobre la resistencia variable $R_z$, lo que
+confirma la relación establecida en las Ec. \ref{eq:c1}---\ref{eq:c3}. Por otro lado,
+los puntos de evaluación $(A,V)$, que están parametrizados por $R_z$, no están
+distribuidos linealmente a lo largo de las respectivas rectas de ajuste. Esto indica
+que la relación entre $R_z$ y las variables $A$ y $V$ es recíproca.
 
+Considerando las Ec. \ref{eq:c1}---\ref{eq:c3} y la regresión lineal para cada conjunto
+de datos, en la Tab. \ref{tab:tevenin} se muestran los valores de voltaje y resistencia
+equivalentes de Thevenin.
 \begin{table}[H]
   \centering
   \caption{voltajes y resistencias equivalentes de Thevenin}
@@ -53,4 +67,5 @@ los valores de fuente y resistencia equibalentes de Thevenin son:
     2 & 12 & 2000 \\
     3 &  6 &  500
   \end{tabular}
+  \label{tab:tevenin}
 \end{table}
