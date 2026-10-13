@@ -56,16 +56,18 @@ que la relación entre $R_z$ y las variables $A$ y $V$ es recíproca.
 
 Considerando las Ec. \ref{eq:c1}---\ref{eq:c3} y la regresión lineal para cada conjunto
 de datos, en la Tab. \ref{tab:tevenin} se muestran los valores de voltaje y resistencia
-equivalentes de Thevenin.
+equivalentes de Thevenin. Junto con las incertidumbres calculadas por el
+algoritmo de York \cite{cantrell2008technical}, dado a las incertidumbres
+asociadas tanto para los datos de amperaje cono voltaje medidos.
 \begin{table}[H]
   \centering
   \caption{voltajes y resistencias equivalentes de Thevenin}
   \begin{tabular}{c|c|c}
-    Circuito & $V_{eq}\unit{\volt}$ & $R_{eq}\unit{\ohm}$ \\
+    Circuito & $V_{eq}\ (\unit{\volt})$ & $R_{eq}\ (\unit{\ohm})$ \\
     \hline
-    1 & 12 & 1000 \\
-    2 & 12 & 2000 \\
-    3 &  6 &  500
+    1 & $12.000\pm0.001$ & $1000.0\pm0.3$ \\
+    2 & $12.001\pm0.002$ & $2000.3\pm0.9$ \\
+    3 & $5.9998\pm0.0007$ & $499.9\pm0.9$
   \end{tabular}
   \label{tab:tevenin}
 \end{table}
