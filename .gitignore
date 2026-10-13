@@ -4,7 +4,7 @@ main.pdf
 *.bbl
 *.aux
 *.out
-*.bib
+main-blx.bib
 *.xml
 *.gz
 *.blg
